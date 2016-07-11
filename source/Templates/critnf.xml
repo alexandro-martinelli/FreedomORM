@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates" version="1.0.0">
+    <template name="critnf" invoke="auto">
+        <description>
+             Create as Null TCriteria(Field)
+        </description>
+        <point name="FieldName">
+            <text>
+                FieldName
+            </text>
+            <hint>
+                FieldName
+            </hint>
+        </point>
+        <author>
+           Freedom Solucões em TI
+        </author>
+        <script>
+          InvokeCodeCompletion
+        </script>
+        <code language="Delphi" context="methodbody" delimiter="|">
+            <![CDATA[TCriteria.CreateAsNull(TFieldArgument.Create('|FieldName|'))]]>
+		</code>
+	</template>
+</codetemplate>

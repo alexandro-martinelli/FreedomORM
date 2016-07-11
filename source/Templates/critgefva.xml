@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates" version="1.0.0">
+    <template name="critgefva" invoke="auto">
+        <description>
+             Create as Greater Than Or Equal To TCriteria((Field, Alias), Value)
+        </description>
+        <point name="FieldName">
+            <text>
+                FieldName
+            </text>
+            <hint>
+                Field Name
+            </hint>
+        </point>
+        <point name="TableAlias">
+            <text>
+                TableAlias
+            </text>
+            <hint>
+                Table Alias
+            </hint>
+        </point>
+        <point name="ValueType">
+            <text>
+                Integer
+            </text>
+            <hint>
+                Value Type: Integer, Date, String, DateTime
+            </hint>
+        </point>
+        <point name="Value">
+            <text>
+                Value
+            </text>
+            <hint>
+                Value: 'Freedom', 10, Now...
+            </hint>
+        </point>        
+        <author>
+           Freedom Solucôes em TI
+        </author>
+        <script>
+          InvokeCodeCompletion
+        </script>
+        <code language="Delphi" context="methodbody" delimiter="|">
+            <![CDATA[TCriteria.CreateAsGreaterThanOrEqualTo(TFieldArgument.Create('|FieldName|', '|TableAlias|'), TValueArgument.CreateAs|ValueType|(|Value|))]]>
+		</code>
+	</template>
+</codetemplate>

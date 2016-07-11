@@ -1,0 +1,828 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{DD0605E1-DA97-49FC-AB04-F94F60284512}</ProjectGuid>
+        <MainSource>TestFreedomORM.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Console</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <ProjectVersion>16.1</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <SanitizedProjectName>TestFreedomORM</SanitizedProjectName>
+        <DCC_K>false</DCC_K>
+        <DCC_N>false</DCC_N>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_DebugInformation>true</DCC_DebugInformation>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=;CFBundleDisplayName=;UIDeviceFamily=;CFBundleIdentifier=;CFBundleVersion=;CFBundlePackageType=;CFBundleSignature=;CFBundleAllowMixedLocalizations=;UISupportedInterfaceOrientations=;CFBundleExecutable=;CFBundleResourceSpecification=;LSRequiresIPhoneOS=;CFBundleInfoDictionaryVersion=;CFBundleDevelopmentRegion=;package=;label=;versionCode=;versionName=;persistent=;restoreAnyVersion=;installLocation=;largeHeap=;theme=</VerInfo_Keys>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <DCC_E>false</DCC_E>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_UsePackage>rtl;vcl;dbrtl;vcldb;FreedomORM;SNComponents;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>TestFreedomORM_Icon.ico</Icon_MainIcon>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_UsePackage>rtl;vcl;dbrtl;vcldb;$(DCC_UsePackage)</DCC_UsePackage>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <Icon_MainIcon>TestFreedomORM_Icon.ico</Icon_MainIcon>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <DCC_DebugInformation>2</DCC_DebugInformation>
+        <DCC_Define>ORMTEST;$(DCC_Define)</DCC_Define>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_DcuOutput>.\dcu\Test</DCC_DcuOutput>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="AM.Freedom.TODO.pas"/>
+        <DCCReference Include="source\tests\uObjectsTests.pas"/>
+        <DCCReference Include="source\tests\uTestArguments.pas"/>
+        <DCCReference Include="source\tests\uTestExpressions.pas"/>
+        <DCCReference Include="source\tests\uTestComparators.pas"/>
+        <DCCReference Include="source\tests\uTestCriteria.pas"/>
+        <DCCReference Include="source\tests\uTestGroupCriteria.pas"/>
+        <DCCReference Include="source\tests\uTestCreateTableCommand.pas"/>
+        <DCCReference Include="source\tests\uTestAlterTableCommand.pas"/>
+        <DCCReference Include="source\tests\uTestCustomFieldOptions.pas"/>
+        <DCCReference Include="source\tests\uTestFields.pas"/>
+        <DCCReference Include="source\tests\uTestSQLFieldList.pas"/>
+        <DCCReference Include="source\tests\uTestContraints.pas"/>
+        <DCCReference Include="source\tests\uTestFromClause.pas"/>
+        <DCCReference Include="source\tests\uTestGroupByClause.pas"/>
+        <DCCReference Include="source\tests\uTestTOrderByClause.pas"/>
+        <DCCReference Include="source\tests\uTestTableCommands.pas"/>
+        <DCCReference Include="source\tests\uTestExpressionsTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestCriteriaTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestGroupCriteriaTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestConstraintsTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestCustomFieldOptionsTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestFieldCommandTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestSelectClauseTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestTableCommandsTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestSimpleSQLGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestColumnMappers.pas"/>
+        <DCCReference Include="source\tests\uTestObjectMapper.pas"/>
+        <DCCReference Include="source\tests\uTestPersistentCursor.pas"/>
+        <DCCReference Include="source\tests\uTestObjectMapperToDDLEntity.pas"/>
+        <DCCReference Include="source\tests\uTestSequenceCommands.pas"/>
+        <DCCReference Include="source\tests\uTestSequenceTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestIndexCommands.pas"/>
+        <DCCReference Include="source\tests\uTestIndexCommandsTextGenerator.pas"/>
+        <DCCReference Include="source\tests\uTestSQLMapper.pas"/>
+        <DCCReference Include="source\tests\uTestDBPersistent.pas"/>
+        <DCCReference Include="source\tests\uTestFreedomObject.pas"/>
+        <DCCReference Include="source\tests\uTestFreedomObjectList.pas"/>
+        <DCCReference Include="source\tests\uTestSQLLinker.pas"/>
+        <DCCReference Include="source\tests\uTestfrmNewDBObjectEditor.pas"/>
+        <DCCReference Include="source\tests\uTestFreedomObjectUnit.pas"/>
+        <DCCReference Include="source\tests\uTestNewListCriterias.pas"/>
+        <DCCReference Include="source\tests\uTestFreedomObjectListToDataSet.pas"/>
+        <DCCReference Include="source\tests\ufrmTestFreedomObjectListToDataSet.pas">
+            <Form>frmTestFreedomObjectListToDataSet</Form>
+        </DCCReference>
+        <DCCReference Include="source\tests\ufrmTestFreedomObjectDataSet.pas">
+            <Form>frmTestFreedomObjectDataSet</Form>
+        </DCCReference>
+        <DCCReference Include="source\tests\uTestFreedomObjectDataSet.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.INamed.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.IAliasable.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.TextGenerator.ITextGenerator.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.CustomPersistent.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.CustomFreedomObject.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.FreedomObject.pas"/>
+        <DCCReference Include="source\Interfaces\SQLMappers\AM.Freedom.SQLMappers.IJoin.pas"/>
+        <DCCReference Include="source\Interfaces\SQLMappers\AM.Freedom.SQLMappers.ISelect.pas"/>
+        <DCCReference Include="source\Interfaces\SQLMappers\AM.Freedom.SQLMappers.ISQLClause.pas"/>
+        <DCCReference Include="source\Interfaces\SQLMappers\AM.Freedom.SQLMappers.ISQLMapper.pas"/>
+        <DCCReference Include="source\Interfaces\GroupCriteria\AM.Freedom.GroupCriteria.IComparator.pas"/>
+        <DCCReference Include="source\Interfaces\GroupCriteria\AM.Freedom.GroupCriteria.ICriteria.pas"/>
+        <DCCReference Include="source\Interfaces\GroupCriteria\AM.Freedom.GroupCriteria.IGroupCriteria.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.TextGenerator.CustomTextGenerator.pas"/>
+        <DCCReference Include="source\CommomObjects\SQLMapers\AM.Freedom.SQLMapper.CustomArgument.pas"/>
+        <DCCReference Include="source\CommomObjects\SQLMapers\AM.Freedom.SQLMappers.AliasableObject.pas"/>
+        <DCCReference Include="source\CommomObjects\SQLMapers\AM.Freedom.SQLMappers.CustomSQLMapper.pas"/>
+        <DCCReference Include="source\CommomObjects\SQLMapers\AM.Freedom.SQLMappers.NamedObject.pas"/>
+        <DCCReference Include="source\CommomObjects\SQLMapers\AM.Freedom.SQLMappers.SQLClause.pas"/>
+        <DCCReference Include="source\CommomObjects\SQLMapers\AM.Freedom.SQLMappers.SQLFieldList.pas"/>
+        <DCCReference Include="source\Commom\AM.Freedom.EnumerationTypes.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.ComparatorType.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.Policy.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.Variant.pas"/>
+        <DCCReference Include="source\API\GroupCriteria\AM.Freedom.GroupCriteria.Comparators.pas"/>
+        <DCCReference Include="source\API\GroupCriteria\AM.Freedom.GroupCriteria.Criteria.pas"/>
+        <DCCReference Include="source\API\GroupCriteria\AM.Freedom.GroupCriteria.pas"/>
+        <DCCReference Include="source\API\GroupCriteria\AM.Freedom.GroupCriteria.ValueCriteria.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.Arguments.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.Expressions.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.FromClause.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.GroupByClause.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.JoinClause.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.OrderByClause.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.SelectClause.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.WhereClause.pas"/>
+        <DCCReference Include="source\API\SQLMappers\DBMappers\AM.Freedom.SQLMappers.MSSQLMapper.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.CriteriaTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.FieldTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.GenerateTextParams.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.GroupCriteriaTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.TableArgumentTextGenerator.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.TextGeneratorRegister.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.CustomSelectTextGenerator.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.HavingClause.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.SQLMappers.CustomExpression.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.TextGenerator.CustomExpressionTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.ExpressionsTextGenerator.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.TextGenerator.CustomClauseTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.FromClauseTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.OrderByClauseTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.GroupByClauseTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.JoinClauseTextGenerator.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.JoinKind.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.SimpleSelectTextGenerator.pas"/>
+        <DCCReference Include="source\API\SQLGenerator\AM.Freedom.SQLGenerator.SimpleSQLGenerator.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.TextGenerator.AbstractTextGenerator.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.ExistsArgument.pas"/>
+        <DCCReference Include="source\API\TextGenerator\Arguments\AM.Freedom.TextGenerator.BetweenArgumentTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\Arguments\AM.Freedom.TextGenerator.CustomLiteralArgumentTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\Arguments\AM.Freedom.TextGenerator.InArgumentTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\Arguments\AM.Freedom.TextGenerator.ValueArgumentTextGenerator.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.Exceptions.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.CalcExpressionType.pas"/>
+        <DCCReference Include="source\Interfaces\SQLMappers\AM.Freedom.SQLMappers.ISQLFormatter.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.SQLFormatter.pas"/>
+        <DCCReference Include="source\Commom\AM.Freedom.Consts.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.ClassFactory.pas"/>
+        <DCCReference Include="source\API\SQLCommands\AM.Freedom.SQLCommands.TableCommands.pas"/>
+        <DCCReference Include="source\API\SQLCommands\Commom\AM.Freedom.SQLCommands.Constraints.pas"/>
+        <DCCReference Include="source\API\SQLCommands\Commom\AM.Freedom.SQLCommands.Fields.pas"/>
+        <DCCReference Include="source\API\SQLCommands\Commom\AM.Freedom.SQLCommands.ScaledFieldCommand.pas"/>
+        <DCCReference Include="source\API\SQLCommands\Commom\AM.Freedom.SQLCommands.SizedFieldCommand.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.SQLCommands.CustomFieldCommand.pas"/>
+        <DCCReference Include="source\API\SQLCommands\AM.Freedom.SQLCommands.TableFieldCommands.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.SQLCommands.CustomTableCommand.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.GeneratorTextList.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.TextGenerator.CustomFieldCommandTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.FieldCommandTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.CustomConstraintTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.ForeignKeyTextGenerator.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.ForeignOption.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.ConstraintType.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.CommandType.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.TextGenerator.CustomTableCommandsTextGenerator.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.TableCommandsTextGenerator.pas"/>
+        <DCCReference Include="source\API\SQLCommands\AM.Freedom.SQLCommands.TableRowCommands.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.MasterTextGenerator.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.Attributes.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.ITrigger.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.CustomTrigger.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.TriggerMapper.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.IMethodControl.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.CustomMethodControl.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.MethodMapper.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.TextGenerator.CustomFieldOptionsTextGenerator.pas"/>
+        <DCCReference Include="source\API\SQLCommands\Commom\AM.Freedom.SQLCommands.MSSQLFields.pas"/>
+        <DCCReference Include="source\API\SQLCommands\Commom\AM.Freedom.SQLCommands.FBFields.pas"/>
+        <DCCReference Include="source\API\SQLMappers\DBMappers\AM.Freedom.SQLMappers.FBSQLMapper.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.CustomMapper.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.CustomColumnMapper.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.CustomColumnReader.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.RttiType.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\Readers\AM.Freedom.ObjectMapper.ObjectToMapper.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.ColumnType.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.ColumnReaderRegister.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.ColumnMappersList.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\Readers\AM.Freedom.ObjectMapper.ColumnReaders.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.ColumnMappers.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.DefaultsClassRegister.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.CustomAutoMappingValueGetter.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.ILazy.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.Lazy.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.Persistent.Cursor.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.MasterMethodControl.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.ColumnOptions.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.RttiField.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.IFreedomObject.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.IFreedomObjectList.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.IPersistent.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.FreedomAttributes.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.InterfacedObjects.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\Readers\AM.Freedom.ObjectMapper.MapperToObject.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.IDBPersistent.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.CustomDBPersistent.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\Readers\AM.Freedom.ObjectMapper.MapperToSelectClause.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.CustomFreedomObjectList.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.FreedomObjectList.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.LazyList.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.CustomColumn.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.DDLObjects.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapperToDDLEntity.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.DDLCompare.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.DDLColumnCompare.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.FieldCommandFactory.pas"/>
+        <DCCReference Include="source\Interfaces\SQLMappers\AM.Freedom.SQLMappers.IDDLExtracter.pas"/>
+        <DCCReference Include="source\CommomObjects\SQLMapers\AM.Freedom.SQLMappers.CustomDDLExtracter.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\DDLExtracters\AM.Freedom.ObjectMapper.FBDDLExtracter.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.FBExpressions.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.FBExpressionsTextGenerator.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.DDLConstraintCompare.pas"/>
+        <DCCReference Include="source\API\SQLCommands\AM.Freedom.SQLCommands.SequenceCommands.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.SequenceCommandsTextGenerators.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.Persistent.SetCursorResult.pas"/>
+        <DCCReference Include="source\API\Persistents\AM.Freedom.Persistent.DataSnapPersistent.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.ValueArgumentFactory.pas"/>
+        <DCCReference Include="source\API\Persistents\DBPersistents\AM.Freedom.DBPersistent.DBParam.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.DBPersistent.IDBConnector.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.Persistent.CustomDBConnector.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.Persistent.CustomDBStatement.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.FieldType.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.SQLLinker.pas"/>
+        <DCCReference Include="source\CommomObjects\SQLMapers\AM.Freedom.SQLMappers.CustomSelect.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\DDLExtracters\AM.Freedom.ObjectMapper.MSSQLDDLExtracter.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.ConstraintMapper.pas"/>
+        <DCCReference Include="source\API\SQLMappers\DBMappers\AM.Freedom.SQLMappers.PGSQLMapper.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\DDLExtracters\AM.Freedom.ObjectMapper.PGDDLExtracter.pas"/>
+        <DCCReference Include="source\API\SQLCommands\AM.Freedom.SQLCommands.SchemaCommands.pas"/>
+        <DCCReference Include="source\API\SQLCommands\AM.Freedom.SQLCommands.DomainCommands.pas"/>
+        <DCCReference Include="source\API\SQLCommands\Commom\AM.Freedom.SQLCommands.FieldOptions.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.DomainTextGenerator.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.Schemas.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\Readers\AM.Freedom.ObjectMapper.ObjectMapperToSchemaMapper.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.SchemaCommandsTextGenerator.pas"/>
+        <DCCReference Include="source\API\Persistents\DBPersistents\AM.Freedom.DBPersistent.DBExpress.pas"/>
+        <DCCReference Include="source\API\Persistents\DBPersistents\AM.Freedom.DBPersistent.FireDac.pas"/>
+        <DCCReference Include="source\API\Persistents\DBPersistents\AM.Freedom.DBPersistent.FireDac.PropertyNames.pas"/>
+        <DCCReference Include="source\API\Persistents\DBPersistents\AM.Freedom.Persistent.FBPersistent.pas"/>
+        <DCCReference Include="source\API\Persistents\DBPersistents\AM.Freedom.Persistent.MSSQLPersistent.pas"/>
+        <DCCReference Include="source\API\Persistents\DBPersistents\AM.Freedom.Persistent.PGPersistent.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.SQLFormatSettings.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.TStrings.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.CustomNullable.pas"/>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.dmConnection.pas">
+            <Form>dmConnection</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmBase.pas">
+            <Form>frmBase</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmNewClass.pas">
+            <Form>frmNewClass</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmNewDBObjectEditor.pas">
+            <Form>frmNewDBObjectEditor</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmNewProperty.pas">
+            <Form>frmNewProperty</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmNewUnit.pas">
+            <Form>frmNewUnit</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmOptions.pas">
+            <Form>frmOptions</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.FreedomObjectDescriptor.pas"/>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.TableSchemas.pas"/>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmNewDBProject.pas">
+            <Form>frmNewDBProject</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\FreedomObjectUnit\Helpers\AM.Freedom.Helpers.WinControl.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.OrderType.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.Persistent.CustomDBQuery.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.ICursor.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.NullableCompare.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.MSSQLExpressionsTextGenerator.pas"/>
+        <DCCReference Include="source\API\SQLMappers\AM.Freedom.SQLMappers.MSSQLExpressions.pas"/>
+        <DCCReference Include="source\API\GroupCriteria\Editor\AM.Freedom.frmNewListCriteria.pas">
+            <Form>frmNewListCriteria</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\GroupCriteria\Editor\AM.Freedom.frmNewGroupCriteria.pas">
+            <Form>frmNewGroupCriteria</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\GroupCriteria\Editor\AM.Freedom.GroupCriteriaDescriptor.pas"/>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmClassUnitName.pas">
+            <Form>frmClassUnitName</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\GroupCriteria\Editor\AM.Freedom.frmNewCriteria.pas">
+            <Form>frmNewCriteria</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\GroupCriteria\Editor\AM.Freedom.frmBaseCriteria.pas">
+            <Form>frmBaseCriteria</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\GroupCriteria\Editor\AM.Freedom.frmBaseArgumentParameter.pas">
+            <Form>frmBaseArgumentParameter</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\GroupCriteria\Editor\AM.Freedom.frmNewArgument.pas">
+            <Form>frmNewArgument</Form>
+        </DCCReference>
+        <DCCReference Include="source\API\GroupCriteria\Editor\AM.Freedom.ArgumentDesignerRegister.pas"/>
+        <DCCReference Include="source\API\SQLCommands\AM.Freedom.SQLCommands.IndexCommands.pas"/>
+        <DCCReference Include="source\API\TextGenerator\AM.Freedom.TextGenerator.IndexCommandsTextGenerator.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.NullOption.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.IndexOption.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.IndexColumn.pas"/>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmNewForeign.pas">
+            <Form>frmNewForeign</Form>
+        </DCCReference>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.LiveRefresh.pas"/>
+        <DCCReference Include="source\API\ObjectDataSet\AM.Freedom.FreedomObjectListToDataSet.pas"/>
+        <DCCReference Include="source\API\ObjectDataSet\AM.Freedom.FreedomObjectDataSet.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.Nullable.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.INullable.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.Freedom.Helper.RttiProperty.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.BooleanValueOptions.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.Nullable.Types.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.CustomRounder.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.RoundObject.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.ColumnsList.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.ObjectMappingExplorer.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectMapper.ColumnValueItem.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\Readers\AM.Freedom.ObjectMapper.ObjectWriter.pas"/>
+        <DCCReference Include="source\API\FreedomObjectUnit\AM.Freedom.frmRenameProperty.pas">
+            <Form>frmRenameProperty</Form>
+        </DCCReference>
+        <DCCReference Include="source\tests\uTestPermissao.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\Readers\AM.Freedom.ObjectMapper.ObjectToMapperAssigner.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.ObjectFactory.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\Factorys\AM.Freedom.FreedomObjectConstructor.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.FreedomObjectsFactory.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\Factorys\AM.Freedom.StringsConstructor.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\Factorys\AM.Freedom.StreamsConstructor.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.FindPropertyItem.pas"/>
+        <DCCReference Include="source\API\GroupCriteria\AM.Freedom.GroupFilterCriteria.pas"/>
+        <DCCReference Include="source\API\GroupCriteria\AM.Freedom.GroupFilterCriteria.FilterCriteria.pas"/>
+        <DCCReference Include="source\Interfaces\GroupCriteria\AM.Freedom.GroupFilterCriteria.IFilterCriteria.pas"/>
+        <DCCReference Include="source\API\GroupCriteria\AM.Freedom.FilteredItem.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.ObjectPropertyValueFinder.pas"/>
+        <DCCReference Include="source\tests\uTestObjectMapperToSelectClause.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.CustomObjectCursor.pas"/>
+        <DCCReference Include="source\CommomObjects\ObjectMapper\AM.Freedom.ObjectMapper.CustomDBObjectCursor.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.IXML.pas"/>
+        <DCCReference Include="source\API\ObjectMappers\AM.Freedom.XML.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.ColumnTypeDBConverter.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.RegisterUserFieldCommandToString.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.LiveRefreshObject.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.IJSONObject.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.JSONFreedomObject.pas"/>
+        <DCCReference Include="source\tests\TestJSONFreedomObject.pas"/>
+        <DCCReference Include="source\tests\TestComplexJSONFreedomObject.pas"/>
+        <DCCReference Include="source\tests\TestBlobJSONFreedomObject.pas"/>
+        <DCCReference Include="source\tests\TestStreamJSONFreedomObject.pas"/>
+        <DCCReference Include="source\tests\uTestStringsJSONFreedomObject.pas"/>
+        <DCCReference Include="source\tests\uTestJSONTFreedomObject.pas"/>
+        <DCCReference Include="source\API\Designers\AM.Freedom.dclFreedomORMConfig.pas"/>
+        <DCCReference Include="source\API\Designers\AM.Freedom.CustomFreedomConfig.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.Persistent.CustomDSCursor.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.Persistent.IDSConnector.pas"/>
+        <DCCReference Include="source\API\Persistents\DSPersistents\AM.Freedom.DSPersistent.FireDac.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.Freedom.FreedomObjectCloner.pas"/>
+        <DCCReference Include="source\Interfaces\AM.Freedom.INotificator.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONAttributes.pas"/>
+        <DCCReference Include="source\tests\uObjectsTestsJSON.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONConverter.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONConsts.pas"/>
+        <DCCReference Include="source\tests\uTestObjectsTestsJSON.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONUtils.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONObjects.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONValueFactory.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONClassConverterRegister.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.LazyJSONConverter.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONStreamConverter.pas"/>
+        <DCCReference Include="source\API\JSONReflect\AM.Freedom.JSONStringListConverter.pas"/>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">TestFreedomORM.dpr</Source>
+                </Source>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1046</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                    <VersionInfoKeys Name="CFBundleName"/>
+                    <VersionInfoKeys Name="CFBundleDisplayName"/>
+                    <VersionInfoKeys Name="UIDeviceFamily"/>
+                    <VersionInfoKeys Name="CFBundleIdentifier"/>
+                    <VersionInfoKeys Name="CFBundleVersion"/>
+                    <VersionInfoKeys Name="CFBundlePackageType"/>
+                    <VersionInfoKeys Name="CFBundleSignature"/>
+                    <VersionInfoKeys Name="CFBundleAllowMixedLocalizations"/>
+                    <VersionInfoKeys Name="UISupportedInterfaceOrientations"/>
+                    <VersionInfoKeys Name="CFBundleExecutable"/>
+                    <VersionInfoKeys Name="CFBundleResourceSpecification"/>
+                    <VersionInfoKeys Name="LSRequiresIPhoneOS"/>
+                    <VersionInfoKeys Name="CFBundleInfoDictionaryVersion"/>
+                    <VersionInfoKeys Name="CFBundleDevelopmentRegion"/>
+                    <VersionInfoKeys Name="package"/>
+                    <VersionInfoKeys Name="label"/>
+                    <VersionInfoKeys Name="versionCode"/>
+                    <VersionInfoKeys Name="versionName"/>
+                    <VersionInfoKeys Name="persistent"/>
+                    <VersionInfoKeys Name="restoreAnyVersion"/>
+                    <VersionInfoKeys Name="installLocation"/>
+                    <VersionInfoKeys Name="largeHeap"/>
+                    <VersionInfoKeys Name="theme"/>
+                </VersionInfoKeys>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k210.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp210.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+            <ModelSupport>False</ModelSupport>
+            <UnitTesting>
+                <TestProjectName>D:\Alex\Delphi\FreedomORM\branches\source\UnitReader\source\Tests\TestUnitReader.dproj</TestProjectName>
+            </UnitTesting>
+            <Deployment>
+                <DeployFile LocalName="TestFreedomORM.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>TestFreedomORM.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployClass Required="true" Name="DependencyPackage">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2048">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXInfoPList"/>
+                <DeployClass Name="ProjectiOSDeviceDebug">
+                    <Platform Name="iOSDevice">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage470">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-normal</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeX86File">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\x86</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSResource">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXEntitlements"/>
+                <DeployClass Name="AndroidGDBServer">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage960">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xlarge</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon96">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch320">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon144">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeMipsFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\mips</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashImageDef">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DebugSymbols">
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyFramework">
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-small</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSEntitlements"/>
+                <DeployClass Name="AdditionalDebugSymbols">
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidClassesDexFile">
+                    <Platform Name="Android">
+                        <RemoteDir>classes</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSInfoPList"/>
+                <DeployClass Name="iPad_Launch1024">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_DefaultAppIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXResource">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
+                <DeployClass Name="iPad_Launch768">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="ProjectOutput">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeArmeabiFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage640">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-large</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="File">
+                    <Platform Name="iOSDevice">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640x1136">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon36">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-ldpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStyles">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1536">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon48">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-mdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon72">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-hdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectAndroidManifest">
+                    <Platform Name="Android">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSDevice" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+            </Deployment>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+    <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+</Project>

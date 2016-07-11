@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates" version="1.0.0">
+    <template name="critswfv" invoke="auto">
+        <description>
+             Create as Starting With TCriteria(Field, Value)
+        </description>
+        <point name="FieldName">
+            <text>
+                FieldName
+            </text>
+            <hint>
+                FieldName
+            </hint>
+        </point>
+        <point name="ValueType">
+            <text>
+                Integer
+            </text>
+            <hint>
+               Value type: Integer String, Date, Time...
+            </hint>
+        </point>
+        <point name="Value">
+            <text>
+                Value
+            </text>
+            <hint>
+                Value: 'Freedom', 10, Now...,
+            </hint>
+        </point>
+        <author>
+           Freedom Solucões em TI
+        </author>
+        <script>
+          InvokeCodeCompletion
+        </script>
+        <code language="Delphi" context="methodbody" delimiter="|">
+            <![CDATA[TCriteria.CreateAsStartingWith(TFieldArgument.Create('|FieldName|'), TValueArgument.CreateAs|ValueType|(|Value|))]]>
+		</code>
+	</template>
+</codetemplate>

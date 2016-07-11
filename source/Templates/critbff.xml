@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates" version="1.0.0">
+    <template name="critbff" invoke="auto">
+        <description>
+             Create as Between TCriteria(Field, Field, Field)
+        </description>
+        <point name="FieldName">
+            <text>
+                FieldName
+            </text>
+            <hint>
+                FieldName
+            </hint>
+        </point>
+        <point name="FieldName2">
+            <text>
+                FieldName2
+            </text>
+            <hint>
+                Field Name 2
+            </hint>
+        </point>
+        <point name="FieldName3">
+            <text>
+                FieldName3
+            </text>
+            <hint>
+                Field Name 3
+            </hint>
+        </point>
+        <author>
+           Freedom Solucões em TI
+        </author>
+        <script>
+          InvokeCodeCompletion
+        </script>
+        <code language="Delphi" context="methodbody" delimiter="|">
+            <![CDATA[TCriteria.CreateAsBetween(TFieldArgument.Create('|FieldName|'), TFieldArgument.Create('|FieldName2|'), TFieldArgument.Create('|FieldName3|'))]]>
+		</code>
+	</template>
+</codetemplate>

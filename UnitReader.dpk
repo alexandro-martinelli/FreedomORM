@@ -1,0 +1,58 @@
+package UnitReader;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'FreedomORM Unit Controls'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl;
+
+contains
+  AM.UnitReader in 'source\UnitReader\source\API\AM.UnitReader.pas',
+  AM.UnitReader.Readers.ClassReader in 'source\UnitReader\source\API\Readers\AM.UnitReader.Readers.ClassReader.pas',
+  AM.UnitReader.Readers.MethodReader in 'source\UnitReader\source\API\Readers\AM.UnitReader.Readers.MethodReader.pas',
+  AM.UnitReader.Members.ArgumentMember in 'source\UnitReader\source\API\Members\AM.UnitReader.Members.ArgumentMember.pas',
+  AM.UnitReader.Members.ClassMember in 'source\UnitReader\source\API\Members\AM.UnitReader.Members.ClassMember.pas',
+  AM.UnitReader.Members.ConstantMember in 'source\UnitReader\source\API\Members\AM.UnitReader.Members.ConstantMember.pas',
+  AM.UnitReader.Members.FieldMember in 'source\UnitReader\source\API\Members\AM.UnitReader.Members.FieldMember.pas',
+  AM.UnitReader.Members.MethodMember in 'source\UnitReader\source\API\Members\AM.UnitReader.Members.MethodMember.pas',
+  AM.UnitReader.Members.PropertyMember in 'source\UnitReader\source\API\Members\AM.UnitReader.Members.PropertyMember.pas',
+  AM.UnitReader.Members.UnitMember in 'source\UnitReader\source\API\Members\AM.UnitReader.Members.UnitMember.pas',
+  AM.UnitReader.Enumerations in 'source\UnitReader\source\Commom\AM.UnitReader.Enumerations.pas',
+  AM.UnitReader.Utils.StrUtils in 'source\UnitReader\source\Commom\AM.UnitReader.Utils.StrUtils.pas',
+  AM.UnitReader.Helper.MemberType in 'source\UnitReader\source\Commom\Helpers\AM.UnitReader.Helper.MemberType.pas',
+  AM.UnitReader.Helper.MemberVisibility in 'source\UnitReader\source\Commom\Helpers\AM.UnitReader.Helper.MemberVisibility.pas',
+  AM.UnitReader.Helper.MethodType in 'source\UnitReader\source\Commom\Helpers\AM.UnitReader.Helper.MethodType.pas',
+  AM.UnitReader.Helper.WordType in 'source\UnitReader\source\Commom\Helpers\AM.UnitReader.Helper.WordType.pas',
+  AM.UnitReader.Members.CustomMember in 'source\UnitReader\source\CommomObjects\AM.UnitReader.Members.CustomMember.pas',
+  AM.UnitReader.PrefixOptions in 'source\UnitReader\source\CommomObjects\AM.UnitReader.PrefixOptions.pas',
+  AM.UnitReader.Readers.CustomReader in 'source\UnitReader\source\CommomObjects\AM.UnitReader.Readers.CustomReader.pas',
+  AM.UnitReader.WordVerificator in 'source\UnitReader\source\CommomObjects\AM.UnitReader.WordVerificator.pas',
+  AM.UnitReader.Members.AttributeMember in 'source\UnitReader\source\API\Members\AM.UnitReader.Members.AttributeMember.pas';
+
+end.

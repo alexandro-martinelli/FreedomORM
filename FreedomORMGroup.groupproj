@@ -1,0 +1,108 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{DB1FF556-1FC7-48E6-B5A8-BAA71AD45C2E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TestFreedomORM.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FreedomORM.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="source\UnitReader\source\Tests\TestUnitReader.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="UnitReader.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="source\UnitElementReader\TestUnitElementReader.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="source\UnitElementReader\UnitElementReader.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclFreedomORM.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TestFreedomORM">
+        <MSBuild Projects="TestFreedomORM.dproj"/>
+    </Target>
+    <Target Name="TestFreedomORM:Clean">
+        <MSBuild Projects="TestFreedomORM.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestFreedomORM:Make">
+        <MSBuild Projects="TestFreedomORM.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FreedomORM">
+        <MSBuild Projects="FreedomORM.dproj"/>
+    </Target>
+    <Target Name="FreedomORM:Clean">
+        <MSBuild Projects="FreedomORM.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FreedomORM:Make">
+        <MSBuild Projects="FreedomORM.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestUnitReader">
+        <MSBuild Projects="source\UnitReader\source\Tests\TestUnitReader.dproj"/>
+    </Target>
+    <Target Name="TestUnitReader:Clean">
+        <MSBuild Projects="source\UnitReader\source\Tests\TestUnitReader.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestUnitReader:Make">
+        <MSBuild Projects="source\UnitReader\source\Tests\TestUnitReader.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UnitReader">
+        <MSBuild Projects="UnitReader.dproj"/>
+    </Target>
+    <Target Name="UnitReader:Clean">
+        <MSBuild Projects="UnitReader.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UnitReader:Make">
+        <MSBuild Projects="UnitReader.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestUnitElementReader">
+        <MSBuild Projects="source\UnitElementReader\TestUnitElementReader.dproj"/>
+    </Target>
+    <Target Name="TestUnitElementReader:Clean">
+        <MSBuild Projects="source\UnitElementReader\TestUnitElementReader.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestUnitElementReader:Make">
+        <MSBuild Projects="source\UnitElementReader\TestUnitElementReader.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UnitElementReader">
+        <MSBuild Projects="source\UnitElementReader\UnitElementReader.dproj"/>
+    </Target>
+    <Target Name="UnitElementReader:Clean">
+        <MSBuild Projects="source\UnitElementReader\UnitElementReader.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UnitElementReader:Make">
+        <MSBuild Projects="source\UnitElementReader\UnitElementReader.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclFreedomORM">
+        <MSBuild Projects="dclFreedomORM.dproj"/>
+    </Target>
+    <Target Name="dclFreedomORM:Clean">
+        <MSBuild Projects="dclFreedomORM.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclFreedomORM:Make">
+        <MSBuild Projects="dclFreedomORM.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TestFreedomORM;FreedomORM;TestUnitReader;UnitReader;TestUnitElementReader;UnitElementReader;dclFreedomORM"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TestFreedomORM:Clean;FreedomORM:Clean;TestUnitReader:Clean;UnitReader:Clean;TestUnitElementReader:Clean;UnitElementReader:Clean;dclFreedomORM:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TestFreedomORM:Make;FreedomORM:Make;TestUnitReader:Make;UnitReader:Make;TestUnitElementReader:Make;UnitElementReader:Make;dclFreedomORM:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

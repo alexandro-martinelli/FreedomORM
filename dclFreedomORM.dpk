@@ -1,0 +1,132 @@
+package dclFreedomORM;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Design time components class for FreedomORM'}
+{$DESIGNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  designide,
+  UnitReader,
+  UnitElementReader,
+  bindengine,
+  bindcomp,
+  FreedomORM,
+  bindcompvcl,
+  VclSmp;
+
+contains
+  AM.Freedom.FreedomObjectBindSource in 'source\API\Bindings\AM.Freedom.FreedomObjectBindSource.pas',
+  AM.Freedom.RegFreedomObjectBindSource in 'source\API\Bindings\AM.Freedom.RegFreedomObjectBindSource.pas',
+  AM.Freedom.ClassesFinder in 'source\API\Bindings\AM.Freedom.ClassesFinder.pas',
+  AM.Freedom.FreedomObjectUnit in 'source\API\FreedomObjectUnit\AM.Freedom.FreedomObjectUnit.pas',
+  AM.Freedom.CustomMenuItem in 'source\API\FreedomObjectUnit\AM.Freedom.CustomMenuItem.pas',
+  AM.Freedom.FreedomObjectUnitMenuItem in 'source\API\FreedomObjectUnit\AM.Freedom.FreedomObjectUnitMenuItem.pas',
+  AM.Freedom.frmNewClass in 'source\API\FreedomObjectUnit\AM.Freedom.frmNewClass.pas' {frmNewClass},
+  AM.Freedom.RegFreedomObjectUnit in 'source\API\FreedomObjectUnit\AM.Freedom.RegFreedomObjectUnit.pas',
+  AM.Freedom.FreedomORMMenuItem in 'source\API\FreedomObjectUnit\AM.Freedom.FreedomORMMenuItem.pas',
+  AM.Freedom.FreedomObjectDescriptor in 'source\API\FreedomObjectUnit\AM.Freedom.FreedomObjectDescriptor.pas',
+  AM.Freedom.frmNewProperty in 'source\API\FreedomObjectUnit\AM.Freedom.frmNewProperty.pas' {frmNewProperty},
+  AM.Freedom.frmOptions in 'source\API\FreedomObjectUnit\AM.Freedom.frmOptions.pas' {frmOptions},
+  AM.Freedom.frmBase in 'source\API\FreedomObjectUnit\AM.Freedom.frmBase.pas' {frmBase},
+  AM.Freedom.FreedomObjectUnitWizard in 'source\API\FreedomObjectUnit\AM.Freedom.FreedomObjectUnitWizard.pas',
+  AM.Freedom.frmNewUnit in 'source\API\FreedomObjectUnit\AM.Freedom.frmNewUnit.pas' {frmNewUnit},
+  AM.Freedom.frmNewDBObjectEditor in 'source\API\FreedomObjectUnit\AM.Freedom.frmNewDBObjectEditor.pas' {frmNewDBObjectEditor},
+  AM.Freedom.dmConnection in 'source\API\FreedomObjectUnit\AM.Freedom.dmConnection.pas' {dmConnection: TDataModule},
+  AM.Freedom.FreedomDBObjectUnitMenuItem in 'source\API\FreedomObjectUnit\AM.Freedom.FreedomDBObjectUnitMenuItem.pas',
+  AM.Freedom.TableSchemas in 'source\API\FreedomObjectUnit\AM.Freedom.TableSchemas.pas',
+  AM.Freedom.frmNewDBProject in 'source\API\FreedomObjectUnit\AM.Freedom.frmNewDBProject.pas' {frmNewDBProject},
+  AM.Freedom.Helpers.WinControl in 'source\API\FreedomObjectUnit\Helpers\AM.Freedom.Helpers.WinControl.pas',
+  AM.Freedom.CustomFreedomObjectUnitWizard in 'source\API\FreedomObjectUnit\AM.Freedom.CustomFreedomObjectUnitWizard.pas',
+  AM.Freedom.FreedomDBObjectUnitWizard in 'source\API\FreedomObjectUnit\AM.Freedom.FreedomDBObjectUnitWizard.pas',
+  AM.Freedom.FreedomObjectKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.FreedomObjectKeyExecutor.pas',
+  AM.Freedom.RegFreedomBindKeyBoard in 'source\API\BindKeyBoard\AM.Freedom.RegFreedomBindKeyBoard.pas',
+  AM.Freedom.FreedomDBObjectKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.FreedomDBObjectKeyExecutor.pas',
+  AM.Freedom.NewUnitKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.NewUnitKeyExecutor.pas',
+  AM.Freedom.DelphiNewUnitCreator in 'source\API\BindKeyBoard\AM.Freedom.DelphiNewUnitCreator.pas',
+  AM.Freedom.frmNewListCriteria in 'source\API\GroupCriteria\Editor\AM.Freedom.frmNewListCriteria.pas' {frmNewListCriteria},
+  AM.Freedom.CriteriasKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.CriteriasKeyExecutor.pas',
+  AM.Freedom.frmNewGroupCriteria in 'source\API\GroupCriteria\Editor\AM.Freedom.frmNewGroupCriteria.pas' {frmNewGroupCriteria},
+  AM.Freedom.GroupCriteriaDescriptor in 'source\API\GroupCriteria\Editor\AM.Freedom.GroupCriteriaDescriptor.pas',
+  AM.Freedom.frmClassUnitName in 'source\API\FreedomObjectUnit\AM.Freedom.frmClassUnitName.pas' {frmClassUnitName},
+  AM.Freedom.frmNewCriteria in 'source\API\GroupCriteria\Editor\AM.Freedom.frmNewCriteria.pas' {frmNewCriteria},
+  AM.Freedom.frmBaseCriteria in 'source\API\GroupCriteria\Editor\AM.Freedom.frmBaseCriteria.pas' {frmBaseCriteria},
+  AM.Freedom.frmNewArgument in 'source\API\GroupCriteria\Editor\AM.Freedom.frmNewArgument.pas' {frmNewArgument},
+  AM.Freedom.frmBaseArgumentParameter in 'source\API\GroupCriteria\Editor\AM.Freedom.frmBaseArgumentParameter.pas' {frmBaseArgumentParameter},
+  AM.Freedom.GroupCriteriasKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.GroupCriteriasKeyExecutor.pas',
+  AM.Freedom.frmNewForeign in 'source\API\FreedomObjectUnit\AM.Freedom.frmNewForeign.pas' {frmNewForeign},
+  AM.Freedom.FreedomObjectDataSet in 'source\API\ObjectDataSet\AM.Freedom.FreedomObjectDataSet.pas',
+  AM.Freedom.RegFreedomObjectDataSet in 'source\API\ObjectDataSet\AM.Freedom.RegFreedomObjectDataSet.pas',
+  AM.Freedom.frmFieldTypeFromPropertyTypeName in 'source\API\ObjectDataSet\AM.Freedom.frmFieldTypeFromPropertyTypeName.pas' {frmFieldTypeFromPropertyTypeName},
+  AM.Freedom.frmRenameProperty in 'source\API\FreedomObjectUnit\AM.Freedom.frmRenameProperty.pas' {frmRenameProperty},
+  AM.Freedom.DesignNotificator in 'source\API\Designers\AM.Freedom.DesignNotificator.pas',
+  AM.Freedom.frmRenameComponent in 'source\API\Designers\AM.Freedom.frmRenameComponent.pas' {frmRenameComponent},
+  AM.Freedom.ComponentRenamer in 'source\API\Designers\AM.Freedom.ComponentRenamer.pas',
+  AM.Freedom.ComponentRenamerConfig in 'source\API\Designers\AM.Freedom.ComponentRenamerConfig.pas',
+  AM.Freedom.frmConfigurePrefix in 'source\API\Designers\AM.Freedom.frmConfigurePrefix.pas' {frmConfigurePrefix},
+  AM.Freedom.RegDesigners in 'source\API\Designers\AM.Freedom.RegDesigners.pas',
+  AM.Freedom.RenameComponentEditor in 'source\API\Designers\AM.Freedom.RenameComponentEditor.pas',
+  AM.Freedom.ComponentNameEditor in 'source\API\Designers\AM.Freedom.ComponentNameEditor.pas',
+  AM.Freedom.dclFreedomORMConfig in 'source\API\Designers\AM.Freedom.dclFreedomORMConfig.pas',
+  AM.Freedom.CustomFreedomConfig in 'source\API\Designers\AM.Freedom.CustomFreedomConfig.pas',
+  AM.Freedom.frmConfigFreedomORM in 'source\API\Designers\AM.Freedom.frmConfigFreedomORM.pas' {frmConfigFreedomORM},
+  AM.Freedom.FreedomORMOptionsMenuItem in 'source\API\Designers\AM.Freedom.FreedomORMOptionsMenuItem.pas',
+  AM.Freedom.frmReconfigurePrefix in 'source\API\Designers\AM.Freedom.frmReconfigurePrefix.pas' {frmReconfigurePrefix},
+  AM.Freedom.FreedomBindKeyBoard in 'source\API\BindKeyBoard\AM.Freedom.FreedomBindKeyBoard.pas',
+  AM.Freedom.ReverseSentenceKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.ReverseSentenceKeyExecutor.pas',
+  AM.Freedom.ComponentRenamer.PropertiesChange in 'source\API\Designers\AM.Freedom.ComponentRenamer.PropertiesChange.pas',
+  AM.Freedom.frmDisplayFieldsEditor in 'source\API\Designers\AM.Freedom.frmDisplayFieldsEditor.pas' {frmDisplayFieldsEditor},
+  AM.Freedom.MoveBlockUpKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.MoveBlockUpKeyExecutor.pas',
+  AM.Freedom.MoveBlockDownKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.MoveBlockDownKeyExecutor.pas',
+  AM.Freedom.DeclareVariableKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.DeclareVariableKeyExecutor.pas',
+  AM.Freedom.frmDeclareVariable in 'source\API\Designers\AM.Freedom.frmDeclareVariable.pas' {frmDeclareVariable},
+  AM.Freedom.ExtractVariableKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.ExtractVariableKeyExecutor.pas',
+  AM.Freedom.ExtractConstantKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.ExtractConstantKeyExecutor.pas',
+  AM.Freedom.frmExtractConstant in 'source\API\Designers\AM.Freedom.frmExtractConstant.pas' {frmExtractConstant},
+  AM.Freedom.FindMethodKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.FindMethodKeyExecutor.pas',
+  AM.Freedom.frmFindMethod in 'source\API\Designers\AM.Freedom.frmFindMethod.pas' {frmFindMethod},
+  AM.Freedom.ExtractMethodKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.ExtractMethodKeyExecutor.pas',
+  AM.Freedom.frmExtractMethod in 'source\API\Designers\AM.Freedom.frmExtractMethod.pas' {frmExtractMethod},
+  AM.Freedom.MethodParameter in 'source\CommomObjects\AM.Freedom.MethodParameter.pas',
+  AM.Freedom.frmMethodParameter in 'source\API\Designers\AM.Freedom.frmMethodParameter.pas' {frmMethodParameter},
+  AM.Freedom.DeclareMethodKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.DeclareMethodKeyExecutor.pas',
+  AM.Freedom.ViewRefactoringsKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.ViewRefactoringsKeyExecutor.pas',
+  AM.Freedom.frmViewRefactorings in 'source\API\Designers\AM.Freedom.frmViewRefactorings.pas' {frmViewRefactorings},
+  AM.Freedom.DeclareUnitKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.DeclareUnitKeyExecutor.pas',
+  AM.Freedom.frmUnitNames in 'source\API\Designers\AM.Freedom.frmUnitNames.pas' {frmUnitNames},
+  AM.Freedom.frmEditSelectedUnits in 'source\API\Designers\AM.Freedom.frmEditSelectedUnits.pas' {frmEditSelectedUnits},
+  AM.Freedom.CustomUnitKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.CustomUnitKeyExecutor.pas',
+  AM.Freedom.UseUnitKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.UseUnitKeyExecutor.pas',
+  AM.Freedom.ProjectUnit in 'source\CommomObjects\AM.Freedom.ProjectUnit.pas',
+  AM.Freedom.FreedomORMOptionsKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.FreedomORMOptionsKeyExecutor.pas',
+  AM.Freedom.FileSearchWriter in 'source\CommomObjects\AM.Freedom.FileSearchWriter.pas',
+  AM.Freedom.CustomFindMethodKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.CustomFindMethodKeyExecutor.pas',
+  AM.Freedom.FindMethodAtCursorKeyExecutor in 'source\API\BindKeyBoard\AM.Freedom.FindMethodAtCursorKeyExecutor.pas',
+  AM.Freedom.RenameParams in 'source\API\Designers\AM.Freedom.RenameParams.pas';
+
+end.

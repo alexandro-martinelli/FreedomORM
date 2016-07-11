@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates" version="1.0.0">
+    <template name="critllffa" invoke="auto">
+        <description>
+             Create as Like Left TCriteria((Field, Alias), (Field, Alias))
+        </description>
+        <point name="FieldName">
+            <text>
+                FieldName
+            </text>
+            <hint>
+                Field Name
+            </hint>
+        </point>
+        <point name="TableAlias">
+            <text>
+                TableAlias
+            </text>
+            <hint>
+                Table Alias
+            </hint>
+        </point>
+        <point name="FieldName2">
+            <text>
+                FieldName2
+            </text>
+            <hint>
+                Field Name 2
+            </hint>
+        </point>
+        <point name="TableAlias2">
+            <text>
+                TableAlias2
+            </text>
+            <hint>
+                Table Alias 2
+            </hint>
+        </point>
+        <author>
+           Freedom Solucões em TI
+        </author>
+        <script>
+          InvokeCodeCompletion
+        </script>
+        <code language="Delphi" context="methodbody" delimiter="|">
+            <![CDATA[TCriteria.CreateAsLikeLeft(TFieldArgument.Create('|FieldName|', '|TableAlias|'), TFieldArgument.Create('|FieldName2|', '|TableAlias2|'))]]>
+		</code>
+	</template>
+</codetemplate>

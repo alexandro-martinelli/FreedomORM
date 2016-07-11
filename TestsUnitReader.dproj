@@ -1,0 +1,236 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3235857B-D619-46CF-9A47-89BB622C28CF}</ProjectGuid>
+        <ProjectVersion>15.1</ProjectVersion>
+        <FrameworkType>None</FrameworkType>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Console</AppType>
+        <MainSource>TestsUnitReader.dpr</MainSource>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_Define>_CONSOLE_TESTRUNNER;$(DCC_Define)</DCC_Define>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_UnitSearchPath>$(BDS)\Source\DUnit\src;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_DcuOutput>.</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_UsePackage>IndyIPClient;FireDACASADriver;FireDACSqliteDriver;bindcompfmx;DBXSqliteDriver;vcldbx;FireDACPgDriver;FireDACODBCDriver;fmx;rtl;dbrtl;DbxClientDriver;IndySystem;FireDACCommon;bindcomp;inetdb;TeeDB;inetdbbde;vclib;DBXInterBaseDriver;DataSnapClient;DataSnapCommon;DBXOdbcDriver;DataSnapServer;Tee;vclFireDAC;DataSnapProviderClient;xmlrtl;DBXSybaseASEDriver;ibxpress;DbxCommonDriver;svnui;vclimg;IndyProtocols;DBXMySQLDriver;dbxcds;DatasnapConnectorsFreePascal;FireDACCommonDriver;MetropolisUILiveTile;bindengine;vclactnband;vcldb;bindcompdbx;FMXTee;vcldsnap;bindcompvcl;soaprtl;TeeUI;vclie;fmxFireDAC;FireDACADSDriver;DBXDb2Driver;vcltouch;DBXOracleDriver;CustomIPTransport;vclribbon;VCLRESTComponents;dsnap;DBXInformixDriver;FireDAC;FireDACMSSQLDriver;fmxase;vcl;DataSnapConnectors;FireDACDataSnapDriver;IndyCore;DBXMSSQLDriver;CloudService;Intraweb;DBXFirebirdDriver;FireDACIBDriver;FmxTeeUI;inet;IndyIPCommon;fmxobj;FireDACDBXDriver;IndyIPServer;dsnapcon;FireDACMySQLDriver;VclSmp;vclx;CodeSiteExpressPkg;inetdbxpress;svn;DBXSybaseASADriver;FireDACOracleDriver;fmxdae;FireDACDb2Driver;RESTComponents;bdertl;FireDACMSAccDriver;dbexpress;adortl;DataSnapIndy10ServerTransport;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_UsePackage>IndyIPClient;FireDACASADriver;FireDACSqliteDriver;bindcompfmx;DBXSqliteDriver;FireDACPgDriver;FireDACODBCDriver;fmx;rtl;dbrtl;DbxClientDriver;IndySystem;FireDACCommon;bindcomp;inetdb;TeeDB;vclib;DBXInterBaseDriver;DataSnapClient;DataSnapCommon;DBXOdbcDriver;DataSnapServer;Tee;vclFireDAC;DataSnapProviderClient;xmlrtl;DBXSybaseASEDriver;ibxpress;DbxCommonDriver;vclimg;IndyProtocols;DBXMySQLDriver;dbxcds;DatasnapConnectorsFreePascal;FireDACCommonDriver;MetropolisUILiveTile;bindengine;vclactnband;vcldb;bindcompdbx;FMXTee;vcldsnap;bindcompvcl;soaprtl;TeeUI;vclie;fmxFireDAC;FireDACADSDriver;DBXDb2Driver;vcltouch;DBXOracleDriver;CustomIPTransport;vclribbon;VCLRESTComponents;dsnap;DBXInformixDriver;FireDAC;FireDACMSSQLDriver;fmxase;vcl;DataSnapConnectors;FireDACDataSnapDriver;IndyCore;DBXMSSQLDriver;CloudService;Intraweb;DBXFirebirdDriver;FireDACIBDriver;FmxTeeUI;inet;IndyIPCommon;fmxobj;FireDACDBXDriver;IndyIPServer;dsnapcon;FireDACMySQLDriver;VclSmp;vclx;inetdbxpress;DBXSybaseASADriver;FireDACOracleDriver;fmxdae;FireDACDb2Driver;RESTComponents;FireDACMSAccDriver;dbexpress;adortl;DataSnapIndy10ServerTransport;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_DebugDCUs>true</DCC_DebugDCUs>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_RemoteDebug>true</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_ExeOutput>.\</DCC_ExeOutput>
+        <DCC_DcuOutput>.\dcu</DCC_DcuOutput>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>None</Manifest_File>
+        <DCC_RemoteDebug>false</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="TestCustomMember.pas"/>
+        <DCCReference Include="TestMethodMember.pas"/>
+        <DCCReference Include="TestCustomMemberList.pas"/>
+        <DCCReference Include="TestClassMember.pas">
+            <Form>,
+  AM.UnitReader.WordVerificator in &apos;source\CommomObjects\AM.UnitReader.WordVerificator.pas&apos;,
+  AM.UnitReader.Readers.CustomReader in &apos;source\CommomObjects\AM.UnitReader.Readers.CustomReader.pas&apos;,
+  AM.UnitReader.PrefixOptions in &apos;source\CommomObjects\AM.UnitReader.PrefixOptions.pas&apos;,
+  AM.UnitReader.Members.CustomMember in &apos;source\CommomObjects\AM.UnitReader.Members.CustomMember.pas&apos;,
+  AM.UnitReader.Enumerations in &apos;source\Commom\AM.UnitReader.Enumerations.pas&apos;,
+  AM.UnitReader.Helper.WordType in &apos;source\Commom\Helpers\AM.UnitReader.Helper.WordType.pas&apos;,
+  AM.UnitReader.Helper.MemberVisibility in &apos;source\Commom\Helpers\AM.UnitReader.Helper.MemberVisibility.pas&apos;,
+  AM.UnitReader.Members.UnitMember in &apos;source\API\Members\AM.UnitReader.Members.UnitMember.pas&apos;,
+  AM.UnitReader.Members.PropertyMember in &apos;source\API\Members\AM.UnitReader.Members.PropertyMember.pas&apos;,
+  AM.UnitReader.Members.MethodMember in &apos;source\API\Members\AM.UnitReader.Members.MethodMember.pas&apos;,
+  AM.UnitReader.Members.FieldMember in &apos;source\API\Members\AM.UnitReader.Members.FieldMember.pas&apos;,
+  AM.UnitReader.Members.ConstantMember in &apos;source\API\Members\AM.UnitReader.Members.ConstantMember.pas&apos;,
+  AM.UnitReader.Members.ClassMember in &apos;source\API\Members\AM.UnitReader.Members.ClassMember.pas&apos;,
+  AM.UnitReader.Members.ArgumentMember in &apos;source\API\Members\AM.UnitReader.Members.ArgumentMember.pas&apos;,
+  AM.UnitReader.Readers.MethodReader in &apos;source\API\Readers\AM.UnitReader.Readers.MethodReader.pas&apos;,
+  AM.UnitReader in &apos;source\API\AM.UnitReader.pas&apos;,
+  AM.UnitReader.Helper.MethodType in &apos;source\Commom\Helpers\AM.UnitReader.Helper.MethodType.pas&apos;,
+  AM.UnitReader.Readers.ClassReader in &apos;source\API\Readers\AM.UnitReader.Readers.ClassReader.pas&apos;,
+  TestMethodReader in &apos;TestMethodReader.pas&apos;,
+  TestClassReader in &apos;TestClassReader.pas&apos;,
+  AM.UnitReader.Utils.StrUtils in &apos;source\Commom\AM.UnitReader.Utils.StrUtils.pas&apos;,
+  TestStrUtilsClass in &apos;TestStrUtilsClass.pas&apos;,
+  uTestUnitReader in &apos;uTestUnitReader.pas&apos;;
+
+{$R *.RES</Form>
+        </DCCReference>
+        <DCCReference Include="source\CommomObjects\AM.UnitReader.WordVerificator.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.UnitReader.Readers.CustomReader.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.UnitReader.PrefixOptions.pas"/>
+        <DCCReference Include="source\CommomObjects\AM.UnitReader.Members.CustomMember.pas"/>
+        <DCCReference Include="source\Commom\AM.UnitReader.Enumerations.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.UnitReader.Helper.WordType.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.UnitReader.Helper.MemberVisibility.pas"/>
+        <DCCReference Include="source\API\Members\AM.UnitReader.Members.UnitMember.pas"/>
+        <DCCReference Include="source\API\Members\AM.UnitReader.Members.PropertyMember.pas"/>
+        <DCCReference Include="source\API\Members\AM.UnitReader.Members.MethodMember.pas"/>
+        <DCCReference Include="source\API\Members\AM.UnitReader.Members.FieldMember.pas"/>
+        <DCCReference Include="source\API\Members\AM.UnitReader.Members.ConstantMember.pas"/>
+        <DCCReference Include="source\API\Members\AM.UnitReader.Members.ClassMember.pas"/>
+        <DCCReference Include="source\API\Members\AM.UnitReader.Members.ArgumentMember.pas"/>
+        <DCCReference Include="source\API\Readers\AM.UnitReader.Readers.MethodReader.pas"/>
+        <DCCReference Include="source\API\AM.UnitReader.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.UnitReader.Helper.MethodType.pas"/>
+        <DCCReference Include="source\API\Readers\AM.UnitReader.Readers.ClassReader.pas"/>
+        <DCCReference Include="TestMethodReader.pas"/>
+        <DCCReference Include="TestClassReader.pas"/>
+        <DCCReference Include="source\Commom\AM.UnitReader.Utils.StrUtils.pas"/>
+        <DCCReference Include="TestStrUtilsClass.pas"/>
+        <DCCReference Include="uTestUnitReader.pas"/>
+        <DCCReference Include="source\Commom\Helpers\AM.UnitReader.Helper.MemberType.pas"/>
+        <None Include="ModelSupport_TestsUnitReader\default.txaPackage"/>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1046</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                    <VersionInfoKeys Name="CFBundleName"/>
+                    <VersionInfoKeys Name="CFBundleDisplayName"/>
+                    <VersionInfoKeys Name="UIDeviceFamily"/>
+                    <VersionInfoKeys Name="CFBundleIdentifier"/>
+                    <VersionInfoKeys Name="CFBundleVersion"/>
+                    <VersionInfoKeys Name="CFBundlePackageType"/>
+                    <VersionInfoKeys Name="CFBundleSignature"/>
+                    <VersionInfoKeys Name="CFBundleAllowMixedLocalizations"/>
+                    <VersionInfoKeys Name="UISupportedInterfaceOrientations"/>
+                    <VersionInfoKeys Name="CFBundleExecutable"/>
+                    <VersionInfoKeys Name="CFBundleResourceSpecification"/>
+                    <VersionInfoKeys Name="LSRequiresIPhoneOS"/>
+                    <VersionInfoKeys Name="CFBundleInfoDictionaryVersion"/>
+                    <VersionInfoKeys Name="CFBundleDevelopmentRegion"/>
+                    <VersionInfoKeys Name="package"/>
+                    <VersionInfoKeys Name="label"/>
+                    <VersionInfoKeys Name="versionCode"/>
+                    <VersionInfoKeys Name="versionName"/>
+                    <VersionInfoKeys Name="persistent"/>
+                    <VersionInfoKeys Name="restoreAnyVersion"/>
+                    <VersionInfoKeys Name="installLocation"/>
+                    <VersionInfoKeys Name="largeHeap"/>
+                    <VersionInfoKeys Name="theme"/>
+                </VersionInfoKeys>
+                <Source>
+                    <Source Name="MainSource">TestsUnitReader.dpr</Source>
+                </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k190.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp190.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Deployment/>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+            <UnitTesting>
+                <TestFramework>DUnit / Delphi Win32</TestFramework>
+                <TestRunner>GUI</TestRunner>
+                <SourceProjectName>C:\Users\alexandro.martinelli\Desktop\UnitReader\UnitReader.dproj</SourceProjectName>
+                <TestProjectName/>
+            </UnitTesting>
+            <ModelSupport>True</ModelSupport>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>
